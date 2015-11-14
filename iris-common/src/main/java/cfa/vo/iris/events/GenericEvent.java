@@ -33,7 +33,7 @@ import java.util.logging.Logger;
  */
 public abstract class GenericEvent<SourceClass, ListenerClass extends IListener<SourceClass, PayloadClass>, PayloadClass> implements IEvent<SourceClass, ListenerClass, PayloadClass> {
 
-    private List<ListenerClass> listeners = new ArrayList();
+    private List<ListenerClass> listeners = new ArrayList<>();
 
     @Override
     public void add(ListenerClass listener) {

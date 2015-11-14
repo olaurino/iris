@@ -7,6 +7,9 @@ import org.junit.rules.ExternalResource;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RunWith(Suite.class)
 public abstract class AbstractComponentSuite {
     private ComponentLoader loader;
@@ -19,7 +22,9 @@ public abstract class AbstractComponentSuite {
     public ExternalResource resource = new ExternalResource() {
         @Override
         protected void before() {
-            loader = new ComponentLoader(new Class[]{getComponentClass()});
+            List<Class<? extends IrisComponent>> comps = new ArrayList<>();
+            comps.add(getComponentClass());
+            loader = new ComponentLoader(comps);
             loader.init();
         }
         @Override

@@ -35,7 +35,7 @@ import java.util.logging.Logger;
  */
 public class SAMPProxy implements InvocationHandler {
 
-    private Map map = new HashMap();
+    private Map<String, Object> map = new HashMap<>();
 
     private Class clazz;
 
@@ -67,7 +67,7 @@ public class SAMPProxy implements InvocationHandler {
         }
     }
 
-    public SAMPProxy(Map<String, Object> inputMap, Class clazz) throws Exception {
+    public SAMPProxy(Map inputMap, Class clazz) throws Exception {
 
         this.clazz = clazz;
 
@@ -96,7 +96,7 @@ public class SAMPProxy implements InvocationHandler {
                 
                     if(list!=null)
                         if(!list.isEmpty()) {
-                            List theList = new ArrayList();
+                            List<Object> theList = new ArrayList<>();
                             for(Object el : list) {
                                 String addName = addname(method);
                                 Class objClass = null;
@@ -165,7 +165,7 @@ public class SAMPProxy implements InvocationHandler {
     private void add(Object o, Method method, Object[] args) {
         String objName = objectName(method);
         if(!map.containsKey(objName+"s")) {
-            List list = new ArrayList();
+            List list = new ArrayList<>();
             map.put(objName+"s", list);
         }
         List list = (List) map.get(objName+"s");
@@ -205,7 +205,7 @@ public class SAMPProxy implements InvocationHandler {
 
     public static Map serialize(Object object, Class clazz) throws Exception{
 
-        Map<String, Object> map = new HashMap();
+        Map<String, Object> map = new HashMap<>();
         for(Method method : clazz.getMethods()) {
             if(!method.getName().startsWith("get"))
                 continue;
@@ -227,7 +227,7 @@ public class SAMPProxy implements InvocationHandler {
                 List list = (List) method.invoke(object);
                 if(list!=null) {
                     if(!list.isEmpty()) {
-                        List<Object> theList = new ArrayList();
+                        List<Object> theList = new ArrayList<>();
                         for(Object el : list) {
                             Class innerClass;
                             if(Proxy.isProxyClass(el.getClass())) {

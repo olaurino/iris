@@ -22,6 +22,7 @@ import cfa.vo.iris.test.unit.ApplicationStub;
 import cfa.vo.iris.test.unit.StubWorkspace;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.logging.Level;
@@ -34,7 +35,7 @@ public class ComponentLoader {
     private List<IrisComponent> components = new ArrayList<>();
     private List<String> failures = new ArrayList<>();
 
-    public ComponentLoader(Class<? extends IrisComponent>[] componentClasses) {
+    public ComponentLoader(Collection<Class<? extends IrisComponent>> componentClasses) {
         for (Class<? extends IrisComponent> compClass : componentClasses) {
             try {
                 components.add(compClass.newInstance());

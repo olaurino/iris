@@ -29,10 +29,6 @@ import java.util.Map;
 import junit.framework.TestCase;
 import org.astrogrid.samp.Message;
 
-/**
- *
- * @author olaurino
- */
 public class SAMPFactoryTest extends TestCase {
 
     private SAMPController controller;
@@ -60,8 +56,8 @@ public class SAMPFactoryTest extends TestCase {
      */
     public void testGet_Class() {
         TestInterface result = (TestInterface) SAMPFactory.get(TestInterface.class);
-        List<String> methods = new ArrayList();
-        List<String> exp_methods = new ArrayList();
+        List<String> methods = new ArrayList<>();
+        List<String> exp_methods = new ArrayList<>();
 
         for(Method m : result.getClass().getDeclaredMethods())
             methods.add(m.getName());
@@ -202,7 +198,7 @@ public class SAMPFactoryTest extends TestCase {
 
             @Override
             public List<String> getThings() {
-                return Arrays.asList(new String[]{"One", "Two"});
+                return Arrays.asList("One", "Two");
             }
 
             @Override

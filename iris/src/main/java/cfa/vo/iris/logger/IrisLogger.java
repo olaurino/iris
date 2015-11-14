@@ -97,7 +97,7 @@ public class IrisLogger implements IrisComponent, LogListener {
 
     @Override
     public List<MessageHandler> getSampHandlers() {
-        return new ArrayList();
+        return new ArrayList<>();
     }
 
     @Override

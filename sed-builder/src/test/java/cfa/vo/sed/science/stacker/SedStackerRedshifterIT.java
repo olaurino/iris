@@ -180,8 +180,8 @@ public class SedStackerRedshifterIT extends AbstracSEDStackerIT {
         redshifter = new SedStackerRedshifter(controller, Default.getInstance().getUnitsManager());
         redshifter.shift(stack);
 
-        List<double[]> xs = new ArrayList();
-        List<double[]> ys = new ArrayList();
+        List<double[]> xs = new ArrayList<>();
+        List<double[]> ys = new ArrayList<>();
         xs.add(x1);
         xs.add(x2);
         xs.add(x3);
@@ -273,8 +273,8 @@ public class SedStackerRedshifterIT extends AbstracSEDStackerIT {
         redshifter.shift(stack);
 
         // original values. make sure stack.getOrigSeds() returns original seds
-        List<double[]> xs = new ArrayList();
-        List<double[]> ys = new ArrayList();
+        List<double[]> xs = new ArrayList<>();
+        List<double[]> ys = new ArrayList<>();
         xs.add(x1);
         xs.add(x2);
         xs.add(x3);

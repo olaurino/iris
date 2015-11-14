@@ -31,8 +31,8 @@ import java.util.List;
  * @author olaurino
  */
 public class Validation {
-    private List<String> warnings = new ArrayList();
-    private List<String> errors = new ArrayList();
+    private List<String> warnings = new ArrayList<>();
+    private List<String> errors = new ArrayList<>();
 
 
     public void addWarning(String warning) {
@@ -44,8 +44,8 @@ public class Validation {
     }
 
     public void reset() {
-        warnings = new ArrayList();
-        errors = new ArrayList();
+        warnings = new ArrayList<>();
+        errors = new ArrayList<>();
 
     }
 

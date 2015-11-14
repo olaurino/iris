@@ -50,7 +50,7 @@ public class ComponentLoaderTest {
 
     @Test
     public void testFailedIORead() throws Exception {
-        ComponentLoader loader = new ComponentLoader(new ArrayList());
+        ComponentLoader loader = new ComponentLoader(new ArrayList<Class<? extends IrisComponent>>());
         List<IrisComponent> components = loader.getComponents();
 
         assertEquals(0, components.size());

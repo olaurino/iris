@@ -82,7 +82,7 @@ public class TestBuilder implements IrisComponent {
 
     @Override
     public List<MessageHandler> getSampHandlers() {
-        return new ArrayList();
+        return new ArrayList<>();
     }
 
     public static IrisApplication getApplication() {
