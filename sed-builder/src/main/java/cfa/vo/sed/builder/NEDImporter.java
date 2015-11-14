@@ -28,10 +28,6 @@ import cfa.vo.sedlib.io.SedFormat;
 import java.net.URL;
 import java.net.URLEncoder;
 
-/**
- *
- * @author olaurino
- */
 public class NEDImporter {
 
     public static final String NED_DATA_DEFAULT_ENDPOINT =
