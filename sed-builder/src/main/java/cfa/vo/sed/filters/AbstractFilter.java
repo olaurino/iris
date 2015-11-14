@@ -44,7 +44,7 @@ public abstract class AbstractFilter implements IFilter {
             File file = new File(url.getFile());
             return lastModified != file.lastModified();
         } else {
-            return false;
+            return true;
         }
     }
 

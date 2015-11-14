@@ -23,18 +23,14 @@ package cfa.vo.sed.builder;
 
 import cfa.vo.sed.setup.SetupManager;
 import cfa.vo.sed.setup.ISetup;
-import cfa.vo.sed.test.App;
 import cfa.vo.sed.test.ConfigFactory;
 import cfa.vo.sed.test.URLTestConverter;
-import cfa.vo.sed.test.Ws;
 import cfa.vo.sedlib.Sed;
 import cfa.vo.sedlib.Segment;
 import cfa.vo.sedlib.io.SedFormat;
 import java.net.URL;
 import java.util.List;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -42,9 +38,9 @@ import org.junit.Test;
  *
  * @author olaurino
  */
-public class SegmentImporterTest {
+public class SegmentImporterT {
 
-    public SegmentImporterTest() {
+    public SegmentImporterT() {
     }
 
     @BeforeClass
@@ -55,27 +51,12 @@ public class SegmentImporterTest {
 
         SetupManager.write(confList, fileURL);
 
-        fileURL = SegmentImporterTest.class.getResource("/test_data/");
+        fileURL = SegmentImporterT.class.getResource("/test_data/");
         fileURL = new URL("file:///"+fileURL.getFile()+"error_types.ini");
 
         confList = ConfigFactory.getAllErrorTypesConfigurations();
         SetupManager.write(confList, fileURL);
 
-        SedBuilder builder = new SedBuilder();
-        builder.init(new App(), new Ws());
-
-    }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
-
-    @Before
-    public void setUp() {
-    }
-
-    @After
-    public void tearDown() {
     }
 
     /**

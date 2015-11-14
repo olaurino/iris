@@ -47,17 +47,6 @@ import java.util.Map.Entry;
  */
 public class ConfigFactory {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) throws Exception {
-        URL outconfig = ConfigFactory.class.getResource("/test_data/spvquantities.ini");
-
-        List<ISetup> confList = getAllQuantitiesConfigurations();
-
-        SetupManager.write(confList, outconfig);
-    }
-
     public static List<ISetup> getAllQuantitiesConfigurations() throws Exception {
         List<ISetup> confList = new ArrayList();
 

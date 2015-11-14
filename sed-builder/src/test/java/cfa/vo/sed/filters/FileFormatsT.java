@@ -21,9 +21,6 @@
 
 package cfa.vo.sed.filters;
 
-import cfa.vo.sed.builder.SedBuilder;
-import cfa.vo.sed.test.App;
-import cfa.vo.sed.test.Ws;
 import cfa.vo.sed.setup.ISetup;
 import cfa.vo.sed.setup.SetupBean;
 import cfa.vo.sed.setup.SetupManager;
@@ -46,9 +43,9 @@ import static org.junit.Assert.*;
  *
  * @author olaurino
  */
-public class FileFormatsTest {
+public class FileFormatsT {
 
-    public FileFormatsTest() {
+    public FileFormatsT() {
     }
 
     @BeforeClass
@@ -60,26 +57,12 @@ public class FileFormatsTest {
         SetupManager.write(confList, fileURL);
     }
 
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
-
-    @Before
-    public void setUp() throws Exception {
-    }
-
-    @After
-    public void tearDown() {
-    }
-
     /**
      * Test of read and write method, of class SetupManager.
      * The write method is tested each time this test is run to create the test files.
      */
     @Test
     public void testConfigurationIOFormats() throws Exception {
-        SedBuilder builder = new SedBuilder();
-        builder.init(new App(), new Ws());
 
         URL fileURL = URLTestConverter.getURL("test:///test_data/fileformats.ini");
         List<ISetup> expResult = ConfigFactory.getAllFormatsConfigurations();

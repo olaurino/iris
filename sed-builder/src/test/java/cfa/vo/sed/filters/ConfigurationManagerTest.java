@@ -56,18 +56,6 @@ public class ConfigurationManagerTest {
         SetupManager.write(confList, fileURL);
     }
 
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
-
-    @Before
-    public void setUp() throws Exception {
-    }
-
-    @After
-    public void tearDown() {
-    }
-
     /**
      * Test of read and write method, of class SetupManager.
      * The write method is tested each time this test is run to create the test files.

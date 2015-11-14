@@ -16,52 +16,19 @@
 
 package cfa.vo.sed.filters;
 
-import cfa.vo.sed.builder.SedBuilder;
-import cfa.vo.sed.test.App;
-import cfa.vo.sed.test.Ws;
 import com.google.common.io.Files;
 import java.io.File;
 import java.net.URL;
-import junit.framework.Assert;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
 
-/**
- *
- * @author olaurino
- */
-public class SameUrlDifferentFilesTest {
+import org.junit.*;
 
-    public SameUrlDifferentFilesTest() {
-    }
-
-    @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
-
-    @Before
-    public void setUp() {
-    }
-
-    @After
-    public void tearDown() {
-    }
+public class SameUrlDifferentFilesT {
 
     /**
-     * Test of getTableBuilder method, of class FITSFilter.
+     * Test that the cache is updated when a file is edited.
      */
     @Test
     public void testSameUrlDifferentFiles() throws Exception {
-
-        SedBuilder builder = new SedBuilder();
-        builder.init(new App(), new Ws());
 
         URL firstURL = getClass().getResource("/test_data/3c273.xml");
         URL secondURL = getClass().getResource("/test_data/mine.vot");
@@ -71,11 +38,11 @@ public class SameUrlDifferentFilesTest {
 
         IFilter firstInstance = FilterCache.getInstance(NativeFileFormat.VOTABLE.getFilter(null).getClass(), firstURL);
 
-        Thread.sleep(2000);
+        Thread.sleep(1000); // the lastModified flag needs to change
 
         IFilter secondInstance = FilterCache.getInstance(NativeFileFormat.VOTABLE.getFilter(null).getClass(), firstURL);
 
-        Assert.assertEquals(true, firstInstance == secondInstance);
+        Assert.assertTrue("file has not changed, instances should be the same", firstInstance == secondInstance);
 
         String filename = firstFile.getAbsolutePath().concat("something");
         URL url = new URL("file:"+filename);
@@ -85,13 +52,13 @@ public class SameUrlDifferentFilesTest {
 
         IFilter firstTestInstance = FilterCache.getInstance(NativeFileFormat.VOTABLE.getFilter(null).getClass(), url);
 
-        Thread.sleep(2000);
+        Thread.sleep(1000); // the lastModified flag needs to change.
 
         Files.copy(secondFile, testFile);
 
         IFilter secondTestInstance = FilterCache.getInstance(NativeFileFormat.VOTABLE.getFilter(null).getClass(), url);
 
-        Assert.assertEquals(true, firstTestInstance != secondTestInstance);
+        Assert.assertFalse("file has changed, instances should be different", firstTestInstance == secondTestInstance);
 
     }
 

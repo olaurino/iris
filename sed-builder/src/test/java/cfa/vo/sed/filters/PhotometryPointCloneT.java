@@ -23,7 +23,6 @@ package cfa.vo.sed.filters;
 
 import cfa.vo.iris.sed.ExtSed;
 import cfa.vo.sed.builder.ISegmentColumn;
-import cfa.vo.sed.builder.SedBuilder;
 import cfa.vo.sed.builder.dm.PhotometryCatalog;
 import cfa.vo.sed.builder.dm.PhotometryCatalogEntry;
 import cfa.vo.sed.builder.dm.PhotometryPoint;
@@ -34,50 +33,23 @@ import cfa.vo.iris.sed.quantities.SPVYQuantity;
 import cfa.vo.iris.sed.quantities.YUnit;
 import cfa.vo.sed.setup.PhotometryCatalogBuilder;
 import cfa.vo.sed.setup.PhotometryPointBuilder;
-import cfa.vo.sed.test.App;
 import cfa.vo.iris.test.Oracle;
-import cfa.vo.sed.test.Ws;
 import cfa.vo.sedlib.io.SedFormat;
 
 import java.util.logging.Logger;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
  *
  * @author olaurino
  */
-public class PhotometryPointCloneTest {
+public class PhotometryPointCloneT {
     
-    private static final Logger logger = Logger.getLogger(PhotometryPointCloneTest.class.getName());
-
-    public PhotometryPointCloneTest() {
-    }
-
-    @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
-
-    @Before
-    public void setUp() {
-    }
-
-    @After
-    public void tearDown() {
-    }
+    private static final Logger logger = Logger.getLogger(PhotometryPointCloneT.class.getName());
 
      @Test
      public void photometryCatalogBuilderTest() throws Exception {
-        SedBuilder builder = new SedBuilder();
-        builder.init(new App(), new Ws());
 
         ExtSed sed = new ExtSed("test");
 

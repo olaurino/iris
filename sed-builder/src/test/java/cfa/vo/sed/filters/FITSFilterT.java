@@ -16,56 +16,27 @@
 
 package cfa.vo.sed.filters;
 
-import cfa.vo.sed.builder.SedBuilder;
 import cfa.vo.sed.builder.SegmentImporter;
 import cfa.vo.sed.setup.ErrorType;
 import cfa.vo.sed.setup.SetupBean;
 import cfa.vo.sed.setup.validation.AxesValidator;
 import cfa.vo.sed.setup.validation.ErrorValidator;
 import cfa.vo.sed.setup.validation.IValidator;
-import cfa.vo.sed.test.App;
 import cfa.vo.sed.test.URLTestConverter;
-import cfa.vo.sed.test.Ws;
 import cfa.vo.sedlib.Segment;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
  *
  * @author olaurino
  */
-public class FITSFilterTest {
-
-    public FITSFilterTest() {
-    }
-
-    @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
-
-    @Before
-    public void setUp() {
-    }
-
-    @After
-    public void tearDown() {
-    }
+public class FITSFilterT {
 
     /**
      * Test of getTableBuilder method, of class FITSFilter.
      */
     @Test
     public void testGetTableBuilder() throws Exception {
-
-        SedBuilder builder = new SedBuilder();
-        builder.init(new App(), new Ws());
 
         SetupBean conf = new SetupBean();
 

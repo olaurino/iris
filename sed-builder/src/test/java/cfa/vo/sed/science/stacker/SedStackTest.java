@@ -21,41 +21,36 @@
  */
 package cfa.vo.sed.science.stacker;
 
-import cfa.vo.iris.interop.SedSAMPController;
+import cfa.vo.iris.IrisComponent;
 import cfa.vo.iris.sed.ExtSed;
+import cfa.vo.iris.test.ComponentLoader;
 import cfa.vo.sed.builder.AsciiConf;
 import cfa.vo.sed.builder.SedBuilder;
 import cfa.vo.sed.builder.SegmentImporter;
 import cfa.vo.sed.setup.SetupBean;
-import cfa.vo.sed.test.App;
-import cfa.vo.sed.test.Ws;
 import cfa.vo.sedlib.Segment;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 import org.apache.commons.lang.StringUtils;
-import org.junit.After;
 import static org.junit.Assert.*;
+
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- *
- * @author jbudynk
- */
 public class SedStackTest {
     private Segment seg1;
     private Segment seg2;
-    private SedSAMPController controller;
-    private SedStackerRedshifter redshifter;
+    private ComponentLoader loader;
     
     @Before
     public void setUp() throws Exception {
 
-        SedBuilder builder = new SedBuilder();
-        builder.init(new App(), new Ws());
+        loader = new ComponentLoader(new Class[]{SedBuilder.class});
+        loader.init();
+        assertTrue("there should be no failures", loader.getFailures().isEmpty());
 
         URL filename1 = AsciiConf.class
                 .getResource("/test_data/ascii-conf-test.dat");
@@ -71,7 +66,7 @@ public class SedStackTest {
 
     @After
     public void tearDown() {
-
+        loader.shutdown();
     }
 
     @Test

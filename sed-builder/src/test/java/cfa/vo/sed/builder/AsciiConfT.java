@@ -19,39 +19,20 @@
  * and open the template in the editor.
  */
 package cfa.vo.sed.builder;
-
-import cfa.vo.sed.test.Ws;
-import cfa.vo.sed.test.App;
-
 import java.net.URL;
-
 import cfa.vo.sedlib.Segment;
 import cfa.vo.sed.setup.SetupBean;
-import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-/**
- *
- * @author Jamie
- */
-public class AsciiConfTest {
-    private SedBuilder builder;
-
-    @Before
-    public void setUp() throws Exception {
-        builder = new SedBuilder();
-        builder.init(new App(), new Ws());
-    }
+public class AsciiConfT {
 
     /**
      * Test of makeConf method, of class AsciiConf.
      */
     @Test
     public void testMakeConf() throws Exception {
-
-        System.out.println("makeConf");
 
         URL filenameOK = AsciiConf.class.getResource("/test_data/ascii-conf-test.dat");
         SetupBean resultOK = new AsciiConf().makeConf(filenameOK);
