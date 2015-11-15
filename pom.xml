@@ -63,6 +63,7 @@
         <sonar.language>java</sonar.language>
         <sonar.exclusions>**cfa/vo/iris/test/**</sonar.exclusions>
         <main.basedir>${project.basedir}</main.basedir>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
     <organization>

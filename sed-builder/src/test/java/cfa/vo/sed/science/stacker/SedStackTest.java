@@ -21,7 +21,6 @@
  */
 package cfa.vo.sed.science.stacker;
 
-import cfa.vo.iris.IrisComponent;
 import cfa.vo.iris.sed.ExtSed;
 import cfa.vo.iris.test.ComponentLoader;
 import cfa.vo.sed.builder.AsciiConf;
@@ -48,7 +47,7 @@ public class SedStackTest {
     @Before
     public void setUp() throws Exception {
 
-        loader = new ComponentLoader(new Class[]{SedBuilder.class});
+        loader = new ComponentLoader(SedBuilder.class);
         loader.init();
         assertTrue("there should be no failures", loader.getFailures().isEmpty());
 

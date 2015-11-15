@@ -21,10 +21,7 @@ import cfa.vo.iris.IrisComponent;
 import cfa.vo.iris.test.unit.ApplicationStub;
 import cfa.vo.iris.test.unit.StubWorkspace;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -35,16 +32,24 @@ public class ComponentLoader {
     private List<IrisComponent> components = new ArrayList<>();
     private List<String> failures = new ArrayList<>();
 
+    public ComponentLoader(Class<? extends IrisComponent> componentClass) throws Exception {
+        loadComponent(componentClass);
+    }
+
     public ComponentLoader(Collection<Class<? extends IrisComponent>> componentClasses) {
         for (Class<? extends IrisComponent> compClass : componentClasses) {
-            try {
-                components.add(compClass.newInstance());
-            } catch (Exception ex) {
-                String message = "Could not construct component " + compClass.getName();
-                System.err.println(message);
-                Logger.getLogger(ComponentLoader.class.getName()).log(Level.SEVERE, message, ex);
-                failures.add(compClass.getName());
-            }
+            loadComponent(compClass);
+        }
+    }
+
+    private void loadComponent(Class<? extends IrisComponent> compClass) {
+        try {
+            components.add(compClass.newInstance());
+        } catch (Exception ex) {
+            String message = "Could not construct component " + compClass.getName();
+            System.err.println(message);
+            Logger.getLogger(ComponentLoader.class.getName()).log(Level.SEVERE, message, ex);
+            failures.add(compClass.getName());
         }
     }
 
