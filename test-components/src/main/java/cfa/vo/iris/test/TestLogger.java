@@ -25,7 +25,7 @@ import cfa.vo.iris.ICommandLineInterface;
 import cfa.vo.iris.IMenuItem;
 import cfa.vo.iris.IWorkspace;
 import cfa.vo.iris.IrisApplication;
-import cfa.vo.iris.IrisComponent;
+import cfa.vo.iris.IrisComponentInterface;
 import cfa.vo.iris.NullCommandLineInterface;
 import cfa.vo.iris.logging.LogEntry;
 import cfa.vo.iris.logging.LogEvent;
@@ -41,7 +41,7 @@ import org.astrogrid.samp.client.MessageHandler;
  *
  * @author olaurino
  */
-public class TestLogger implements IrisComponent, LogListener {
+public class TestLogger implements IrisComponentInterface, LogListener {
     
     private static final Logger logger = Logger.getLogger(TestLogger.class.getName());
 

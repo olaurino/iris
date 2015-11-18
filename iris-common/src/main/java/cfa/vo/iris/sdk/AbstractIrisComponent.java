@@ -23,7 +23,7 @@ package cfa.vo.iris.sdk;
 import cfa.vo.iris.ICommandLineInterface;
 import cfa.vo.iris.IWorkspace;
 import cfa.vo.iris.IrisApplication;
-import cfa.vo.iris.IrisComponent;
+import cfa.vo.iris.IrisComponentInterface;
 import cfa.vo.iris.NullCommandLineInterface;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +33,7 @@ import org.astrogrid.samp.client.MessageHandler;
  *
  * @author olaurino
  */
-public abstract class AbstractIrisComponent implements IrisComponent {
+public abstract class AbstractIrisComponent implements IrisComponentInterface {
     
     protected IrisApplication app;
     protected IWorkspace workspace;

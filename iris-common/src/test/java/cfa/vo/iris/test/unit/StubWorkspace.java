@@ -22,7 +22,7 @@ package cfa.vo.iris.test.unit;
 
 import cfa.vo.iris.IMenuItem;
 import cfa.vo.iris.IWorkspace;
-import cfa.vo.iris.IrisComponent;
+import cfa.vo.iris.IrisComponentInterface;
 import cfa.vo.iris.desktop.IrisMenuItem;
 import cfa.vo.iris.gui.GUIUtils;
 import cfa.vo.iris.sed.ISedManager;
@@ -30,8 +30,6 @@ import cfa.vo.iris.sed.SedlibSedManager;
 import cfa.vo.iris.units.DefaultUnitsManager;
 import cfa.vo.iris.units.UnitsManager;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.*;
 
 public class StubWorkspace implements IWorkspace {
@@ -53,7 +51,7 @@ public class StubWorkspace implements IWorkspace {
         menuBar.add(toolsMenu);
     }
 
-    public void addComponent(IrisComponent component) {
+    public void addComponent(IrisComponentInterface component) {
         JMenu componentMenu = null;
         for (IMenuItem item : component.getMenus()) {
             IrisMenuItem i = new IrisMenuItem(item);

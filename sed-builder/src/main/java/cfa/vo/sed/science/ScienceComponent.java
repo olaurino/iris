@@ -25,7 +25,7 @@ import cfa.vo.iris.ICommandLineInterface;
 import cfa.vo.iris.IMenuItem;
 import cfa.vo.iris.IWorkspace;
 import cfa.vo.iris.IrisApplication;
-import cfa.vo.iris.IrisComponent;
+import cfa.vo.iris.IrisComponentInterface;
 import cfa.vo.iris.NullCommandLineInterface;
 import cfa.vo.iris.events.SedEvent;
 import cfa.vo.iris.gui.GUIUtils;
@@ -39,7 +39,7 @@ import org.astrogrid.samp.client.MessageHandler;
  *
  * @author olaurino
  */
-public class ScienceComponent implements IrisComponent {
+public class ScienceComponent implements IrisComponentInterface {
     SedlibSedManager manager;
     IWorkspace workspace;
     IrisApplication app;

@@ -23,7 +23,7 @@ import org.astrogrid.samp.client.MessageHandler;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VisualizerComponent implements IrisComponent {
+public class VisualizerComponent implements IrisComponentInterface {
     
     private IrisApplication app;
     private IWorkspace ws;

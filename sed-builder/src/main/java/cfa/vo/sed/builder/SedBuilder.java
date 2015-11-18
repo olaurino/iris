@@ -58,7 +58,7 @@ import java.util.logging.Logger;
  *
  * @author olaurino
  */
-public class SedBuilder implements IrisComponent {
+public class SedBuilder implements IrisComponentInterface {
 
     private static IrisApplication iris;
     private static IWorkspace workspace;

@@ -15,7 +15,7 @@
  */
 package cfa.vo.iris.test.unit;
 
-import cfa.vo.iris.IrisComponent;
+import cfa.vo.iris.IrisComponentInterface;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -61,14 +61,14 @@ public abstract class AbstractGUITest extends UISpecTestCase {
     }
 
     private void initComponents() {
-        for (IrisComponent c : getComponents()) {
+        for (IrisComponentInterface c : getComponents()) {
             c.init(app, app.getWorkspace());
             c.initCli(app);
             app.addComponent(c);
         }
     }
 
-    protected abstract List<IrisComponent> getComponents();
+    protected abstract List<IrisComponentInterface> getComponents();
 
     @After
     public void teardown() {

@@ -22,7 +22,7 @@
 
 package cfa.vo.sed.gui;
 
-import cfa.vo.iris.IrisComponent;
+import cfa.vo.iris.IrisComponentInterface;
 import cfa.vo.iris.sed.ExtSed;
 import cfa.vo.iris.test.unit.AbstractComponentGUITest;
 import cfa.vo.sed.builder.AsciiConf;
@@ -56,7 +56,7 @@ public class SaveSedDialogTest extends AbstractComponentGUITest {
     }
 
     @Override
-    protected IrisComponent getComponent() {
+    protected IrisComponentInterface getComponent() {
         return new SedBuilder();
     }
 

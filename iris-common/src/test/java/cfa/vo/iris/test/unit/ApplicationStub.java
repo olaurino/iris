@@ -67,7 +67,7 @@ public class ApplicationStub implements IrisApplication {
         return null;
     }
 
-    public void addComponent(IrisComponent component) {
+    public void addComponent(IrisComponentInterface component) {
         wSpace.addComponent(component);
     }
 

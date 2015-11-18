@@ -37,7 +37,6 @@ import javax.swing.JTextField;
 import javax.swing.JCheckBox;
 import cfa.vo.iris.IrisApplication;
 import cfa.vo.iris.gui.GUIUtils;
-import cfa.vo.iris.gui.NarrowOptionPane;
 import cfa.vo.iris.IWorkspace;
 import javax.swing.JFrame;
 

@@ -39,7 +39,7 @@ public class ComponentLoaderTest {
     @Test
     public void testLoadComponents() {
         ComponentLoader loader = new ComponentLoader(testUrl);
-        List<IrisComponent> components = loader.getComponents();
+        List<IrisComponentInterface> components = loader.getComponents();
 
         assertEquals(1, components.size());
         assertTrue(components.get(0) instanceof TestIrisComponent);
@@ -50,8 +50,8 @@ public class ComponentLoaderTest {
 
     @Test
     public void testFailedIORead() throws Exception {
-        ComponentLoader loader = new ComponentLoader(new ArrayList<Class<? extends IrisComponent>>());
-        List<IrisComponent> components = loader.getComponents();
+        ComponentLoader loader = new ComponentLoader(new ArrayList<Class<? extends IrisComponentInterface>>());
+        List<IrisComponentInterface> components = loader.getComponents();
 
         assertEquals(0, components.size());
     }

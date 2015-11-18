@@ -15,7 +15,7 @@
  */
 package cfa.vo.iris.test.unit;
 
-import cfa.vo.iris.IrisComponent;
+import cfa.vo.iris.IrisComponentInterface;
 
 import java.util.Arrays;
 import java.util.List;
@@ -23,9 +23,9 @@ import java.util.List;
 public abstract class AbstractComponentGUITest extends AbstractGUITest {
 
     @Override
-    protected List<IrisComponent> getComponents() {
-        return Arrays.asList(new IrisComponent[]{getComponent()});
+    protected List<IrisComponentInterface> getComponents() {
+        return Arrays.asList(new IrisComponentInterface[]{getComponent()});
     }
 
-    protected abstract IrisComponent getComponent();
+    protected abstract IrisComponentInterface getComponent();
 }

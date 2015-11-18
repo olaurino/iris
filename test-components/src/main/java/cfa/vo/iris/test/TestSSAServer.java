@@ -26,7 +26,7 @@ import cfa.vo.iris.IMenuItem;
 import cfa.vo.iris.IWorkspace;
 import cfa.vo.iris.AbstractIrisApplication;
 import cfa.vo.iris.IrisApplication;
-import cfa.vo.iris.IrisComponent;
+import cfa.vo.iris.IrisComponentInterface;
 import cfa.vo.iris.NullCommandLineInterface;
 import cfa.vo.iris.gui.NarrowOptionPane;
 import cfa.vo.iris.interop.SedSAMPController;
@@ -55,7 +55,7 @@ import org.astrogrid.samp.client.MessageHandler;
  *
  * @author olaurino
  */
-public class TestSSAServer implements IrisComponent {
+public class TestSSAServer implements IrisComponentInterface {
 
     private SedlibSedManager sedManager;
     private JFrame rootFrame;

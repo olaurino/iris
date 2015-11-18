@@ -1,6 +1,6 @@
 package cfa.vo.iris.test.unit;
 
-import cfa.vo.iris.IrisComponent;
+import cfa.vo.iris.IrisComponentInterface;
 import cfa.vo.iris.test.ComponentLoader;
 import org.junit.*;
 import org.junit.rules.ExternalResource;
@@ -22,7 +22,7 @@ public abstract class AbstractComponentSuite {
     public ExternalResource resource = new ExternalResource() {
         @Override
         protected void before() {
-            List<Class<? extends IrisComponent>> comps = new ArrayList<>();
+            List<Class<? extends IrisComponentInterface>> comps = new ArrayList<>();
             comps.add(getComponentClass());
             loader = new ComponentLoader(comps);
             loader.init();
@@ -37,5 +37,5 @@ public abstract class AbstractComponentSuite {
      * Return the class of the component to load as part of this
      * @return
      */
-    protected abstract Class<?extends IrisComponent> getComponentClass();
+    protected abstract Class<?extends IrisComponentInterface> getComponentClass();
 }

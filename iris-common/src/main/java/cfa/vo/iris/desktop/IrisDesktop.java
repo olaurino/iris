@@ -33,7 +33,7 @@ import cfa.vo.iris.AbstractDesktopItem;
 import cfa.vo.iris.IMenuItem;
 import cfa.vo.iris.AbstractIrisApplication;
 import cfa.vo.iris.IWorkspace;
-import cfa.vo.iris.IrisComponent;
+import cfa.vo.iris.IrisComponentInterface;
 import cfa.vo.iris.events.PluginJarEvent;
 import cfa.vo.iris.events.PluginListener;
 import cfa.vo.iris.sdk.IrisPlugin;
@@ -65,7 +65,7 @@ import org.jdesktop.application.Action;
 public class IrisDesktop extends JFrame implements PluginListener {
 
     protected List<DesktopButton> buttons = new ArrayList<>();
-    protected List<IrisComponent> components = new ArrayList<>();
+    protected List<IrisComponentInterface> components = new ArrayList<>();
     protected JDialog aboutBox;
     protected AbstractIrisApplication app;
     IWorkspace ws;
@@ -100,7 +100,7 @@ public class IrisDesktop extends JFrame implements PluginListener {
 
 
         if (app.isSampEnabled()) {
-            for (IrisComponent component : components) {
+            for (IrisComponentInterface component : components) {
                 for (MessageHandler handler : component.getSampHandlers()) {
                     app.addMessageHandler(handler);
                 }
@@ -174,7 +174,7 @@ public class IrisDesktop extends JFrame implements PluginListener {
         desktopPane.add(helpButton);
     }
 
-    public void reset(List<IrisComponent> components) {
+    public void reset(List<IrisComponentInterface> components) {
         if(manager != null && !components.contains(manager)) {
             components.add(manager);
         }
@@ -193,7 +193,7 @@ public class IrisDesktop extends JFrame implements PluginListener {
         buttons = new ArrayList<>();
 
         int c = 0;
-        for (IrisComponent component : components) {
+        for (IrisComponentInterface component : components) {
             int cf = 0;
             JMenu cMenu = null;
             for (IMenuItem item : component.getMenus()) {
@@ -446,7 +446,7 @@ public class IrisDesktop extends JFrame implements PluginListener {
     protected org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 
-    void setComponents(List<IrisComponent> components) {
+    void setComponents(List<IrisComponentInterface> components) {
         this.components = components;
     }
     // End of variables declaration
@@ -523,16 +523,16 @@ public class IrisDesktop extends JFrame implements PluginListener {
         List<IrisPlugin> plugins = source.getPlugins();
 
         for (IrisPlugin plugin : plugins) {
-            List<IrisComponent> comps = plugin.getComponents();
+            List<IrisComponentInterface> comps = plugin.getComponents();
             if (payload.equals(SedCommand.ADDED)) {
                 components.addAll(comps);
-                for (IrisComponent c : comps) {
+                for (IrisComponentInterface c : comps) {
                     c.init(app, ws);
                 }
             }
             if (payload.equals(SedCommand.REMOVED)) {
                 components.removeAll(comps);
-                for (IrisComponent c : comps) {
+                for (IrisComponentInterface c : comps) {
                     c.shutdown();
                 }
             }

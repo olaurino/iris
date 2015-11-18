@@ -29,9 +29,7 @@ import cfa.vo.iris.interop.SedSAMPController;
 import cfa.vo.iris.sdk.PluginManager;
 import cfa.vo.iris.sed.ExtSed;
 
-import java.awt.*;
 import java.io.File;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +39,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JDialog;
 
-import org.apache.commons.lang.StringUtils;
 import org.astrogrid.samp.Message;
 import org.astrogrid.samp.client.MessageHandler;
 import org.astrogrid.samp.client.SampException;
@@ -51,15 +48,10 @@ import org.jdesktop.application.Application;
  * Base Iris application. Handles startup, shutdown, etc.
  *
  */
-public abstract class AbstractIrisApplication extends Application implements IrisApplication {
+public abstract class AbstractIrisApplication extends Application {
+    private IrisInitialization init;
 
     private static final Logger logger = Logger.getLogger(AbstractIrisApplication.class.getName());
-    private static SedSAMPController sampController;
-    private static boolean isTest = false;
-    static boolean SAMP_ENABLED = !System.getProperty("samp", "true").toLowerCase().equals("false");
-    public static final boolean SAMP_FALLBACK = false;
-    public static final File CONFIGURATION_DIR = new File(System.getProperty("user.home") + "/.vao/iris/");
-    public static final boolean MAC_OS_X = System.getProperty("os.name").toLowerCase().startsWith("mac os x");
     
     protected String[] componentArgs;
     protected String componentName;
@@ -68,7 +60,7 @@ public abstract class AbstractIrisApplication extends Application implements Iri
     protected IrisWorkspace ws;
     protected IrisDesktop desktop;
     private ComponentLoader componentLoader;
-    private Map<String, IrisComponent> components = new TreeMap<>();
+    private Map<String, IrisComponentInterface> components = new TreeMap<>();
 
     public abstract String getName();
     public abstract String getDescription();
@@ -88,16 +80,12 @@ public abstract class AbstractIrisApplication extends Application implements Iri
         return componentLoader;
     }
 
-    public List<IrisComponent> getComponents() {
+    public List<IrisComponentInterface> getComponents() {
         return getComponentLoader().getComponents();
     }
 
     public static AbstractIrisApplication getInstance() {
         return Application.getInstance(AbstractIrisApplication.class);
-    }
-
-    public static void setTest(boolean t) {
-        isTest = t;
     }
 
     public static void setAutoRunHub(boolean autoRunHub) {
@@ -111,11 +99,6 @@ public abstract class AbstractIrisApplication extends Application implements Iri
             Logger.getLogger(SedSAMPController.class.getName()).log(Level.INFO, "Shutting down SAMP");
             sampController.stop();
         }
-    }
-
-    @Override
-    public File getConfigurationDir() {
-        return CONFIGURATION_DIR;
     }
 
     @Override
@@ -143,9 +126,7 @@ public abstract class AbstractIrisApplication extends Application implements Iri
 
     @Override
     protected void startup() {
-        if (!CONFIGURATION_DIR.exists()) {
-            CONFIGURATION_DIR.mkdirs();
-        }
+        
 
         // Read and construct components
         initComponents();
@@ -180,7 +161,7 @@ public abstract class AbstractIrisApplication extends Application implements Iri
     
     protected void initComponents() {
         try {
-            for (IrisComponent component : getComponents()) {
+            for (IrisComponentInterface component : getComponents()) {
                 component.initCli(this);
                 components.put(component.getCli().getName(), component);
             }
@@ -222,7 +203,7 @@ public abstract class AbstractIrisApplication extends Application implements Iri
         ws = new IrisWorkspace();
         ws.setDesktop(desktop);
         desktop.setWorkspace(ws);
-        for (final IrisComponent component : components.values()) {
+        for (final IrisComponentInterface component : components.values()) {
             component.init(this, ws);
         }
     }
@@ -237,31 +218,11 @@ public abstract class AbstractIrisApplication extends Application implements Iri
     }
 
     public void exitApp() {
-        for (IrisComponent component : components.values()) {
+        for (IrisComponentInterface component : components.values()) {
             component.shutdown();
         }
         sampShutdown();
         System.exit(0);
-    }
-
-    @Override
-    public boolean isSampEnabled() {
-        return SAMP_ENABLED;
-    }
-
-    @Override
-    public void sendSedMessage(ExtSed sed) throws SampException {
-        sampController.sendSedMessage(sed);
-    }
-
-    @Override
-    public void sendSampMessage(Message msg) throws SampException {
-        sampController.sendMessage(new SimpleSAMPMessage(msg));
-    }
-
-    @Override
-    public SAMPController getSAMPController() {
-        return sampController;
     }
     
     public void addConnectionListener(SAMPConnectionListener listener) {

@@ -23,7 +23,7 @@ package cfa.vo.iris.sdk;
 import cfa.vo.iris.IMenuItem;
 import cfa.vo.iris.IWorkspace;
 import cfa.vo.iris.IrisApplication;
-import cfa.vo.iris.IrisComponent;
+import cfa.vo.iris.IrisComponentInterface;
 import cfa.vo.iris.events.PluginJarEvent;
 import cfa.vo.iris.events.SedCommand;
 import cfa.vo.iris.gui.GUIUtils;
@@ -95,7 +95,7 @@ public class PluginManager extends AbstractIrisComponent {
                 jars.add(jar);
                 jar.setFile(dest);
                 for(IrisPlugin p : jar.getPlugins()) {
-                    for(IrisComponent c : p.getComponents()) {
+                    for(IrisComponentInterface c : p.getComponents()) {
                         for(IMenuItem item : c.getMenus()) {
                             item.consolidate(dest);
                         }

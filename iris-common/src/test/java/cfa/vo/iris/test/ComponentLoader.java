@@ -17,7 +17,7 @@ package cfa.vo.iris.test;
 
 import cfa.vo.iris.IWorkspace;
 import cfa.vo.iris.IrisApplication;
-import cfa.vo.iris.IrisComponent;
+import cfa.vo.iris.IrisComponentInterface;
 import cfa.vo.iris.test.unit.ApplicationStub;
 import cfa.vo.iris.test.unit.StubWorkspace;
 
@@ -29,20 +29,20 @@ import java.util.logging.Logger;
  * Test utility class for loading components in an isolated application and workspace environment
  */
 public class ComponentLoader {
-    private List<IrisComponent> components = new ArrayList<>();
+    private List<IrisComponentInterface> components = new ArrayList<>();
     private List<String> failures = new ArrayList<>();
 
-    public ComponentLoader(Class<? extends IrisComponent> componentClass) throws Exception {
+    public ComponentLoader(Class<? extends IrisComponentInterface> componentClass) throws Exception {
         loadComponent(componentClass);
     }
 
-    public ComponentLoader(Collection<Class<? extends IrisComponent>> componentClasses) {
-        for (Class<? extends IrisComponent> compClass : componentClasses) {
+    public ComponentLoader(Collection<Class<? extends IrisComponentInterface>> componentClasses) {
+        for (Class<? extends IrisComponentInterface> compClass : componentClasses) {
             loadComponent(compClass);
         }
     }
 
-    private void loadComponent(Class<? extends IrisComponent> compClass) {
+    private void loadComponent(Class<? extends IrisComponentInterface> compClass) {
         try {
             components.add(compClass.newInstance());
         } catch (Exception ex) {
@@ -65,7 +65,7 @@ public class ComponentLoader {
      * Return an unmodifiable list of components in this ComponentLoader
      * @return an unmodifiable list of IrisComponents
      */
-    public List<IrisComponent> getComponents() {
+    public List<IrisComponentInterface> getComponents() {
         return Collections.unmodifiableList(components);
     }
 
@@ -77,7 +77,7 @@ public class ComponentLoader {
         IrisApplication app = new ApplicationStub();
         IWorkspace ws = new StubWorkspace();
 
-        for (IrisComponent comp: components) {
+        for (IrisComponentInterface comp: components) {
             try {
                 comp.initCli(app);
                 comp.init(app, ws);
@@ -94,7 +94,7 @@ public class ComponentLoader {
      * Shutdown components in this ComponentLoader
      */
     public void shutdown() {
-        for (IrisComponent comp: components) {
+        for (IrisComponentInterface comp: components) {
             try {
                 comp.shutdown();
             } catch (Exception ex) {

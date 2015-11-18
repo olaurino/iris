@@ -25,6 +25,6 @@ package cfa.vo.iris;
  *
  * @author olaurino
  */
-public interface IrisGuiComponent extends IrisComponent {
+public interface IrisGuiComponent extends IrisComponentInterface {
     void onClose();
 }

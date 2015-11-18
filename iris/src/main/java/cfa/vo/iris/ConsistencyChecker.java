@@ -36,7 +36,7 @@ import org.astrogrid.samp.client.MessageHandler;
  *
  * @author olaurino
  */
-public class ConsistencyChecker implements IrisComponent {
+public class ConsistencyChecker implements IrisComponentInterface {
 
     private IrisApplication app;
     private IWorkspace workspace;

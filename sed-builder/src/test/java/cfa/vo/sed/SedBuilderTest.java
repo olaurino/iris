@@ -15,7 +15,7 @@
  */
 package cfa.vo.sed;
 
-import cfa.vo.iris.IrisComponent;
+import cfa.vo.iris.IrisComponentInterface;
 import cfa.vo.iris.test.unit.AbstractComponentSuite;
 import cfa.vo.sed.builder.AsciiConfT;
 import cfa.vo.sed.builder.SedBuilder;
@@ -34,7 +34,7 @@ import org.junit.runners.Suite;
 })
 public class SedBuilderTest extends AbstractComponentSuite {
         @Override
-        protected Class<? extends IrisComponent> getComponentClass() {
+        protected Class<? extends IrisComponentInterface> getComponentClass() {
                 return SedBuilder.class;
         }
 }

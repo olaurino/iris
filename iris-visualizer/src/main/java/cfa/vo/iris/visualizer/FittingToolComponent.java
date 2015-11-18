@@ -24,7 +24,7 @@ import org.astrogrid.samp.client.MessageHandler;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FittingToolComponent implements IrisComponent {
+public class FittingToolComponent implements IrisComponentInterface {
     
     protected IrisApplication app;
     private IWorkspace ws;

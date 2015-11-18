@@ -22,7 +22,7 @@
 package cfa.vo.iris.sdk;
 
 import cfa.vo.iris.AbstractIrisApplication;
-import cfa.vo.iris.IrisComponent;
+import cfa.vo.iris.IrisComponentInterface;
 import cfa.vo.iris.gui.NarrowOptionPane;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -201,7 +201,7 @@ public class PluginManagerFrame extends javax.swing.JInternalFrame {
                 pluginName.add(pluginAuthor);
                 DefaultMutableTreeNode comps = new DefaultMutableTreeNode("Components");
                 pluginName.add(comps);
-                for (IrisComponent component : plugin.getComponents()) {
+                for (IrisComponentInterface component : plugin.getComponents()) {
                     DefaultMutableTreeNode compNode = new DefaultMutableTreeNode(component.getName());
                     DefaultMutableTreeNode compDescription = new DefaultMutableTreeNode("Description: " + component.getDescription());
                     comps.add(compNode);

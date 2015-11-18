@@ -25,7 +25,7 @@ import cfa.vo.iris.ICommandLineInterface;
 import cfa.vo.iris.IMenuItem;
 import cfa.vo.iris.IWorkspace;
 import cfa.vo.iris.IrisApplication;
-import cfa.vo.iris.IrisComponent;
+import cfa.vo.iris.IrisComponentInterface;
 import cfa.vo.iris.NullCommandLineInterface;
 import cfa.vo.iris.gui.NarrowOptionPane;
 import cfa.vo.iris.logging.LogEntry;
@@ -48,7 +48,7 @@ import org.astrogrid.samp.client.MessageHandler;
  *
  * @author olaurino
  */
-public class IrisLogger implements IrisComponent, LogListener {
+public class IrisLogger implements IrisComponentInterface, LogListener {
 
     private LoggerViewer view;
     private File logFile;

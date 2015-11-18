@@ -33,7 +33,7 @@ import java.util.logging.Logger;
  *
  * @author olaurino
  */
-public class SmokeTest implements IrisComponent {
+public class SmokeTest implements IrisComponentInterface {
 
     private SherpaSmokeTest test;
 

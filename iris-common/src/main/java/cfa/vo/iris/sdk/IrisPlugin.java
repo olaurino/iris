@@ -20,7 +20,7 @@
  */
 package cfa.vo.iris.sdk;
 
-import cfa.vo.iris.IrisComponent;
+import cfa.vo.iris.IrisComponentInterface;
 import java.util.List;
 
 /**
@@ -32,6 +32,6 @@ public interface IrisPlugin {
     public String getDescription();
     public String getVersion();
     public String getAuthor();
-    public List<IrisComponent> getComponents();
+    public List<IrisComponentInterface> getComponents();
     public String getAcknowledgments();
 }

@@ -18,7 +18,7 @@ package cfa.vo.iris.visualizer;
 import cfa.vo.iris.test.unit.AbstractComponentGUITest;
 import org.junit.Before;
 import org.junit.Test;
-import cfa.vo.iris.IrisComponent;
+import cfa.vo.iris.IrisComponentInterface;
 
 public class FittingToolComponentTest extends AbstractComponentGUITest {
 
@@ -31,7 +31,7 @@ public class FittingToolComponentTest extends AbstractComponentGUITest {
         windowName = comp.getName();
     }
 
-    protected IrisComponent getComponent() {
+    protected IrisComponentInterface getComponent() {
         return comp;
     }
 

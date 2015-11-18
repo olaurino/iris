@@ -30,10 +30,10 @@ import org.apache.commons.lang.StringUtils;
 
 public class ComponentLoader {
 
-    protected List<IrisComponent> components = new ArrayList<>();
+    protected List<IrisComponentInterface> components = new ArrayList<>();
     protected List<String> failures = new ArrayList<>();
 
-    public ComponentLoader(Collection<Class<? extends IrisComponent>> componentList) {
+    public ComponentLoader(Collection<Class<? extends IrisComponentInterface>> componentList) {
         for (Class c : componentList) {
             loadComponent(c);
         }
@@ -49,7 +49,7 @@ public class ComponentLoader {
         }
     }
 
-    public List<IrisComponent> getComponents() {
+    public List<IrisComponentInterface> getComponents() {
         return components;
     }
 
@@ -77,10 +77,10 @@ public class ComponentLoader {
         return componentsList;
     }
 
-    public final void loadComponent(Class<? extends IrisComponent> componentClass) {
+    public final void loadComponent(Class<? extends IrisComponentInterface> componentClass) {
         try {
             Logger.getLogger(ComponentLoader.class.getName()).log(Level.INFO, "Loading class: " + componentClass.getName());
-            IrisComponent component = componentClass.newInstance();
+            IrisComponentInterface component = componentClass.newInstance();
             components.add(component);
         } catch (Exception ex) {
             String message = "Could not construct component " + componentClass.getName();
