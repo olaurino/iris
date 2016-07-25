@@ -184,8 +184,6 @@ public class FittingMainView extends JInternalFrame implements SedListener {
 
         modelPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jSplitPane3.setPreferredSize(null);
-
         jPanel5.setMinimumSize(null);
         jPanel5.setPreferredSize(null);
         jPanel5.setLayout(new java.awt.GridBagLayout());
@@ -211,7 +209,6 @@ public class FittingMainView extends JInternalFrame implements SedListener {
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 82;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(6, 0, 6, 0);
@@ -238,7 +235,6 @@ public class FittingMainView extends JInternalFrame implements SedListener {
         gridBagConstraints.gridy = 3;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 82;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(6, 0, 6, 0);
@@ -254,7 +250,6 @@ public class FittingMainView extends JInternalFrame implements SedListener {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.ipadx = 64;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(18, 0, 18, 0);
@@ -267,7 +262,7 @@ public class FittingMainView extends JInternalFrame implements SedListener {
         jSplitPane3.setRightComponent(jPanel5);
 
         modelViewerPanel.setMinimumSize(null);
-        modelViewerPanel.setPreferredSize(null);
+        modelViewerPanel.setPreferredSize(new java.awt.Dimension(450, 250));
         jSplitPane3.setLeftComponent(modelViewerPanel);
 
         javax.swing.GroupLayout modelPanelLayout = new javax.swing.GroupLayout(modelPanel);
@@ -314,7 +309,7 @@ public class FittingMainView extends JInternalFrame implements SedListener {
         );
         confidenceContainerLayout.setVerticalGroup(
             confidenceContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(confidencePanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
+            .addComponent(confidencePanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
         );
 
         jSplitPane2.setRightComponent(confidenceContainer);
@@ -420,7 +415,7 @@ public class FittingMainView extends JInternalFrame implements SedListener {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(availableComponents, javax.swing.GroupLayout.DEFAULT_SIZE, 497, Short.MAX_VALUE)
+            .addComponent(availableComponents, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
         );
 
         jSplitPane1.setLeftComponent(jPanel4);
